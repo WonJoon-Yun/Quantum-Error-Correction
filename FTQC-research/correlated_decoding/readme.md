@@ -8,7 +8,7 @@
 
  
 
-## Without Transversal CNOT (Memory Test)
+## In conventional QEC (Without Transversal, i.e., CNOT Memory Test)
 
 1. *Raw Stabilizer Measurement*
 
@@ -27,7 +27,7 @@
     | 2    |  -1  $Z^1_2 \cdot Z^1_2$ | +1   $Z^2_2 \cdot Z^2_2$  |
 
 
-## With Transversal CNOT 
+## How does it differ with Transversal CNOT 
 
 
 1. **Raw Stabilizer Measurement (Same as previous one)**
