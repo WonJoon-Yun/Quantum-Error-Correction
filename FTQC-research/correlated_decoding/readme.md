@@ -10,7 +10,7 @@
 
 ## Without Transversal CNOT (Memory Test)
 
-1. Raw Stabilizer Measurement
+1. *Raw Stabilizer Measurement*
 
     | Time | Z1   | Z2   |
     | ---- | ---- | ---- |
@@ -18,7 +18,7 @@
     | 1    |  -1  | +1   |
     | 2    |  +1  | +1   |
 
-2. Check
+2. *Check*
     When there is no *transversal CNOT*, each check is defined as the product of consecutive measurements of the *same* stabilizer:
     $C^i_t = Z^i_{t} \cdot Z^i_{t-1}$ such that $i\in {1,2}$ and $t\in {1,2}$.
     | Time | C1   | C2   |
@@ -30,7 +30,7 @@
 ## With Transversal CNOT 
 
 
-1. Raw Stabilizer Measurement (Same as previous one)
+1. *Raw Stabilizer Measurement (Same as previous one)*
 
     | Time | Z1   | Z2   |
     | ---- | ---- | ---- |
@@ -39,8 +39,8 @@
     | 2    |  +1  | +1   |
 
 
-2. Check
-    Check without transversal CNOT is based on the back-propagating the stabilizer operator. 
+2. *Check*
+    Check with transversal CNOT is based on the back-propagating the stabilizer operator. 
     For example, you have two logical qubits (say, qubit 1 and 2) and apply transversal CNOT (1,2) at time between t=1 and t=2.
     The $Z_1$ stabilizer is unchanged by the CNOT, so, $C^1_1 = Z^1_1 \cdot Z^1_0$, and $C^1_2 = Z^1_2 \cdot Z^1_1$.
     The check of logical qubit 2 at the time $t+1$ is affected by transversal CNOT, which is written as $C^2_{t+1} = (Z^1_{t}  \cdot Z^2_{t}) \cdot Z^2_{t+1}$. Under a CNOT (1,2), the stabilizer transforms as $Z_2 \;\mapsto\; Z_1 Z_2$. Therefore, the check at time t=2 for logical qubit 2 must be defined as $\boxed{C^2_2 = (Z^1_1 \cdot Z^2_1)\cdot Z^2_2}$. Finally, the checks represented as follows:
@@ -50,7 +50,7 @@
     | 2    |  -1 $Z^1_2 \cdot Z^1_1$ | -1 $(Z^1_1 \cdot Z^2_1) \cdot Z^2_2$  | 
 
 *Note.* Conventionally, **single physical fault flips at most two checks**. However, a **single measurement error with transversal CNOT** on $Z_1$ at $t=1$ flips three checks $\{ C^1_1,\; C^1_2,\; C^2_2 \}$.
-Since MWPM also assumes that **each physical fault flips at most two checks**, it cannot represent this error mechanism exactly and therefore cannot perform maximum-likelihood decoding for this circuit without approximation. 
+Since MWPM also assumes that **each physical fault flips at most two checks**, it cannot represent this error mechanism exactly and therefore cannot perform maximum-likelihood decoding for this circuit without approximation. To achieve fault tolerance it requires additional syndrome extraction rounds.
 <!-- 
 ## Why correlated decoding requires only one round?
 When the observed syndrome is exactly those three checks, the correlated decoder can explain it with one fault. No extra syndrome rounds are required because the model already contains the correct single-fault explanation. -->
