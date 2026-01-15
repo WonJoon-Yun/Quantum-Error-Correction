@@ -13,12 +13,15 @@ QEC is crucial in quantum computers which are error-prone. Running a quantum alg
 A QECC is formally defined as a subspace $\mathcal{C}\subset(\mathbb{C}^2)^{\xdot n} with $dim(\mathcal{C})=2^k$ where $n$, $k$, $\mathcal{C}$ stand for the number of physical (data) qubits, number of logical qubits and the codespace, respectively.
 
 ### Characterization of QECC
-QeCC is conventionally denoted as $[[n,k,d]]$, where
+QeCC is conventionally denoted as $[[n,k,d]]$ or [[n,k,d_x,d_z]], where
 | Symbol | Meaning                              | What it counts                      |
 | ------ | ------------------------------------ | ----------------------------------- |
-| (n)    | Number of **data (physical) qubits** | Actual hardware qubits              |
-| (k)    | Number of **logical qubits**         | Encoded qubits carrying information |
-| (d)    | **Code distance**                    | Error-correction strength           |
+| $n$    | Number of **data (physical) qubits** | Actual hardware qubits              |
+| $k$    | Number of **logical qubits**         | Encoded qubits carrying information |
+| $d$    | **Code distance**                    | Error-correction strength           |
+| $d_x$    | **Code distance** for X errors                   | Error-correction strength           |
+| $d_z$    | **Code distance**  for Z erros                  | Error-correction strength           |
+
 
 - Data (physical) qubits ($n$)
   - These are the physical qubits used to encode the logical information
@@ -33,8 +36,11 @@ QeCC is conventionally denoted as $[[n,k,d]]$, where
   - A logical block is one instance of the code applied to a fixed set of data qubits
   - One logical block contains $n$ data qubits, encodes $k$ logical qubits, detects up to $d-1$ errors, and corrects up to $\lfloor \frac{d-1}{2}\rfloor$ errors ($d-1$ erasures).
 
+#### Characteristics of QECC that cannot be characterized by $n,k$, and $d$:
 
-### Example of [[144,12,12]]
+- check weight: the number of data qubits involved in the check
+
+#### Example of [[144,12,12]]
 | Property                 | Value                        |
 | ------------------------ | ---------------------------- |
 | Distance                 | (d = 12)                     |
