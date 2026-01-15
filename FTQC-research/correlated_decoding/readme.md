@@ -30,7 +30,7 @@
 ## With Transversal CNOT 
 
 
-1. *Raw Stabilizer Measurement (Same as previous one)*
+1. **Raw Stabilizer Measurement (Same as previous one)**
 
     | Time | Z1   | Z2   |
     | ---- | ---- | ---- |
@@ -39,7 +39,7 @@
     | 2    |  +1  | +1   |
 
 
-2. *Check*
+2. **Check**
     Check with transversal CNOT is based on the back-propagating the stabilizer operator. 
     For example, you have two logical qubits (say, qubit 1 and 2) and apply transversal CNOT (1,2) at time between t=1 and t=2.
     The $Z_1$ stabilizer is unchanged by the CNOT, so, $C^1_1 = Z^1_1 \cdot Z^1_0$, and $C^1_2 = Z^1_2 \cdot Z^1_1$.
@@ -49,7 +49,7 @@
     | 1    |  -1 $Z^1_1 \cdot Z^1_0$ | +1 $Z^2_1 \cdot Z^2_0$  |
     | 2    |  -1 $Z^1_2 \cdot Z^1_1$ | -1 $(Z^1_1 \cdot Z^2_1) \cdot Z^2_2$  | 
 
-*Note.* Conventionally, **single physical fault flips at most two checks**. However, a **single measurement error with transversal CNOT** on $Z_1$ at $t=1$ flips three checks $\{ C^1_1,\; C^1_2,\; C^2_2 \}$.
+**Note.** Conventionally, **single physical fault flips at most two checks**. However, a **single measurement error with transversal CNOT** on $Z_1$ at $t=1$ flips three checks $\{ C^1_1,\; C^1_2,\; C^2_2 \}$.
 Since MWPM also assumes that **each physical fault flips at most two checks**, it cannot represent this error mechanism exactly and therefore cannot perform maximum-likelihood decoding for this circuit without approximation. To achieve fault tolerance it requires additional syndrome extraction rounds.
 <!-- 
 ## Why correlated decoding requires only one round?
