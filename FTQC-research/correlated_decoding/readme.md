@@ -1,10 +1,10 @@
-## Technical Jargons Used in this document:
+<!-- ## Technical Jargons Used in this document:
 
 1. Hypergraph
  - vertex: A vertex corresponds to a single check instance $C^i_t$ (i.e., check i evaluated over a specific time interval t). In practice, a vertex is the spacetime label (i,t) for a check outcome.
  - hyperedge:
 2. Check
- - Detection event: if check =1
+ - Detection event: if check =1 -->
 
  
 
@@ -19,7 +19,7 @@
     | 2    |  +1  | +1   |
 
 2. Check
-    When there is no *transversal CNOT (i.e., no gate coupling the two logical qubits between rounds)*, each check is defined as the product of consecutive measurements of the *same* stabilizer:
+    When there is no *transversal CNOT*, each check is defined as the product of consecutive measurements of the *same* stabilizer:
     $C^i_t = Z^i_{t} \cdot Z^i_{t-1}$ such that $i\in {1,2}$ and $t\in {1,2}$.
     | Time | C1   | C2   |
     | ---- | ---- | ---- |
@@ -51,7 +51,9 @@
 
 *Note.* Conventionally, **single physical fault flips at most two checks**. However, a **single measurement error with transversal CNOT** on $Z_1$ at $t=1$ flips three checks $\{ C^1_1,\; C^1_2,\; C^2_2 \}$.
 Since MWPM also assumes that **each physical fault flips at most two checks**, it cannot represent this error mechanism exactly and therefore cannot perform maximum-likelihood decoding for this circuit without approximation. 
-
+<!-- 
+## Why correlated decoding requires only one round?
+When the observed syndrome is exactly those three checks, the correlated decoder can explain it with one fault. No extra syndrome rounds are required because the model already contains the correct single-fault explanation. -->
 
 <!-- 
 
