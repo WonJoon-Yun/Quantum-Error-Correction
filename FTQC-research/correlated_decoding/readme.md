@@ -27,7 +27,7 @@
     | 2    |  -1  $Z^1_2 \cdot Z^1_2$ | +1   $Z^2_2 \cdot Z^2_2$  |
 
 
-## How does it differ with Transversal CNOT 
+## How does it differ with transversal CNOT 
 
 
 1. **Raw Stabilizer Measurement (Same as previous one)**
